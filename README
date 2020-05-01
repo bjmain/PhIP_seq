@@ -1,1 +1,3 @@
+# We want to display all SARS-CoV2 epitopes that have been reported for the structure proteins: M, E, N, S.
+### To do that, navigate to the NCBI virus resource:
 https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?SeqType_s=Nucleotide&VirusLineage_ss=SARS-CoV-2,+taxid:2697049
