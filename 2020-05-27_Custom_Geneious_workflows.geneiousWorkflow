@@ -1,0 +1,269 @@
+<geneiousWorkflows>
+  <XMLSerialisableRootElement name="S and translate" author="bradleymain" geneiousVersion="2020.0.3" uniqueId="32ac6949-01e3-4934-9e22-afc605515d0c" revisionNumber="12" description="">
+    <workflowElement type="com.biomatters.plugins.workflows.WorkflowElementForEach" />
+    <workflowElement id="com.biomatters.plugins.extractAnnotations.ExtractAnnotationsOperation" exposeNoOptions="true" exposeAllOptions="false" suppressErrors="true" showButtonForExposedGroup="false" groupNameForExposedOptions="" type="com.biomatters.plugins.workflows.DocumentOperationWorkflowElement">
+      <Options>
+        <option name="match">all</option>
+        <option name="whatToExtract">annotatedRegion</option>
+        <option name="intersecting">includeContained</option>
+        <option name="concatenate">false</option>
+        <option name="includeIntergenicRegionsOption">false</option>
+        <option name="dontMatchTruncated">false</option>
+        <childOption name="extractionContextOptions">
+          <option name="includeUpstreamBasesOption">false</option>
+          <option name="numUpstreamBasesOption">0</option>
+          <option name="includeDownstreamBasesOption">false</option>
+          <option name="numDownstreamBasesOption">0</option>
+        </childOption>
+        <childOption name="consensusOptions">
+          <option name="thresholdPercent">weighted_60</option>
+          <option name="noConsensusGaps">false</option>
+          <option name="mapQuality">true</option>
+          <option name="mapQualityMethod">mapSummed</option>
+          <option name="noCoverageCharacterDeNovo">unknown</option>
+          <option name="noCoverageCharacterReference">unknown</option>
+          <option name="applyLowCoverageOrQualityCall">false</option>
+          <option name="lowCoverageOrQualityCharacter">unknown</option>
+          <option name="coverageOrQuality">coverage</option>
+          <option name="qualityThreshold">20</option>
+          <option name="coverageThreshold">2</option>
+          <option name="noConsensusEndGaps">false</option>
+          <option name="trimToReference">false</option>
+          <option name="ignoreReadsMappedToMultipleLocations">false</option>
+          <option name="removeGaps">true</option>
+          <option name="appendText">false</option>
+          <option name="textToAppend">consensus sequence</option>
+          <option name="callWhenGapInBestStates" />
+          <option name="callChromatogramHeterozygotes">true</option>
+          <option name="chromatogramHeterozygotePercentage">50</option>
+          <option name="howToStoreSequences">AskUser</option>
+        </childOption>
+        <multiOption name="annotation">
+          <value>
+            <option name="field">Annotation name</option>
+            <option name="condition">contains</option>
+            <option name="value" extra="">S CDS</option>
+          </value>
+        </multiOption>
+      </Options>
+      <optionToExpose optionName="match" label="" />
+    </workflowElement>
+    <workflowElement id="TranslationOperation" exposeNoOptions="true" exposeAllOptions="false" suppressErrors="false" showButtonForExposedGroup="false" groupNameForExposedOptions="" type="com.biomatters.plugins.workflows.DocumentOperationWorkflowElement" />
+    <workflowElement type="com.biomatters.plugins.workflows.WorkflowElementSaveAndContinue">
+      <options>
+        <option name="save">true</option>
+        <option name="saveInSubFolder">false</option>
+        <option name="subFolderName" />
+        <option name="addVariable">Include Name...</option>
+        <option name="selectDocuments">false</option>
+        <option name="doWhat">continue</option>
+        <option name="back">2</option>
+      </options>
+    </workflowElement>
+    <icon>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</icon>
+  </XMLSerialisableRootElement>
+  <XMLSerialisableRootElement name="extract MENS translate and save" author="bradleymain" geneiousVersion="2020.0.3" uniqueId="b39d460a-b9a2-47bb-b839-5170e03e1413" revisionNumber="28" description="">
+    <workflowElement type="com.biomatters.plugins.workflows.WorkflowElementForEach" />
+    <workflowElement id="com.biomatters.plugins.extractAnnotations.ExtractAnnotationsOperation" exposeNoOptions="true" exposeAllOptions="false" suppressErrors="true" showButtonForExposedGroup="false" groupNameForExposedOptions="" type="com.biomatters.plugins.workflows.DocumentOperationWorkflowElement">
+      <Options>
+        <option name="match">any</option>
+        <option name="whatToExtract">annotatedRegion</option>
+        <option name="intersecting">includeContained</option>
+        <option name="concatenate">false</option>
+        <option name="includeIntergenicRegionsOption">false</option>
+        <option name="dontMatchTruncated">false</option>
+        <childOption name="extractionContextOptions">
+          <option name="includeUpstreamBasesOption">false</option>
+          <option name="numUpstreamBasesOption">0</option>
+          <option name="includeDownstreamBasesOption">false</option>
+          <option name="numDownstreamBasesOption">0</option>
+        </childOption>
+        <childOption name="consensusOptions">
+          <option name="thresholdPercent">weighted_60</option>
+          <option name="noConsensusGaps">false</option>
+          <option name="mapQuality">true</option>
+          <option name="mapQualityMethod">mapSummed</option>
+          <option name="noCoverageCharacterDeNovo">unknown</option>
+          <option name="noCoverageCharacterReference">unknown</option>
+          <option name="applyLowCoverageOrQualityCall">false</option>
+          <option name="lowCoverageOrQualityCharacter">unknown</option>
+          <option name="coverageOrQuality">coverage</option>
+          <option name="qualityThreshold">20</option>
+          <option name="coverageThreshold">2</option>
+          <option name="noConsensusEndGaps">false</option>
+          <option name="trimToReference">false</option>
+          <option name="ignoreReadsMappedToMultipleLocations">false</option>
+          <option name="removeGaps">true</option>
+          <option name="appendText">false</option>
+          <option name="textToAppend">consensus sequence</option>
+          <option name="callWhenGapInBestStates" />
+          <option name="callChromatogramHeterozygotes">true</option>
+          <option name="chromatogramHeterozygotePercentage">50</option>
+          <option name="howToStoreSequences">AskUser</option>
+        </childOption>
+        <multiOption name="annotation">
+          <value>
+            <option name="field">Annotation name</option>
+            <option name="condition">contains</option>
+            <option name="value" extra="">S CDS</option>
+          </value>
+          <value>
+            <option name="field">Annotation name</option>
+            <option name="condition">contains</option>
+            <option name="value" extra="">N CDS</option>
+          </value>
+          <value>
+            <option name="field">Annotation name</option>
+            <option name="condition">contains</option>
+            <option name="value" extra="">E CDS</option>
+          </value>
+          <value>
+            <option name="field">Annotation name</option>
+            <option name="condition">contains</option>
+            <option name="value" extra="">M CDS</option>
+          </value>
+        </multiOption>
+      </Options>
+      <optionToExpose optionName="match" label="" />
+    </workflowElement>
+    <workflowElement id="FilterOperation" exposeNoOptions="true" exposeAllOptions="false" suppressErrors="false" showButtonForExposedGroup="false" groupNameForExposedOptions="" type="com.biomatters.plugins.workflows.DocumentOperationWorkflowElement">
+      <Options>
+        <option name="filterWhat">eachSequence</option>
+        <option name="match">all</option>
+        <multiOption name="filter">
+          <value>
+            <option name="field">cache_name</option>
+            <option name="condition">does_not_contain</option>
+            <option name="value">orf</option>
+          </value>
+        </multiOption>
+      </Options>
+      <optionToExpose optionName="filterWhat" label="" />
+    </workflowElement>
+    <workflowElement id="TranslationOperation" exposeNoOptions="true" exposeAllOptions="false" suppressErrors="false" showButtonForExposedGroup="false" groupNameForExposedOptions="" type="com.biomatters.plugins.workflows.DocumentOperationWorkflowElement" />
+    <workflowElement type="com.biomatters.plugins.workflows.WorkflowElementSaveAndContinue">
+      <options>
+        <option name="save">true</option>
+        <option name="saveInSubFolder">true</option>
+        <option name="subFolderName">MENS</option>
+        <option name="addVariable">Include Name...</option>
+        <option name="selectDocuments">false</option>
+        <option name="doWhat">continue</option>
+        <option name="back">2</option>
+      </options>
+    </workflowElement>
+    <icon>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</icon>
+  </XMLSerialisableRootElement>
+  <XMLSerialisableRootElement name="extract MENS translate CCoV" author="bradleymain" geneiousVersion="2020.0.3" uniqueId="88501f0e-abcf-4114-be69-beaf86efbbc3" revisionNumber="29" description="">
+    <workflowElement type="com.biomatters.plugins.workflows.WorkflowElementForEach" />
+    <workflowElement id="com.biomatters.plugins.extractAnnotations.ExtractAnnotationsOperation" exposeNoOptions="true" exposeAllOptions="false" suppressErrors="true" showButtonForExposedGroup="false" groupNameForExposedOptions="" type="com.biomatters.plugins.workflows.DocumentOperationWorkflowElement">
+      <Options>
+        <option name="match">any</option>
+        <option name="whatToExtract">annotatedRegion</option>
+        <option name="intersecting">includeContained</option>
+        <option name="concatenate">false</option>
+        <option name="includeIntergenicRegionsOption">false</option>
+        <option name="dontMatchTruncated">false</option>
+        <childOption name="extractionContextOptions">
+          <option name="includeUpstreamBasesOption">false</option>
+          <option name="numUpstreamBasesOption">0</option>
+          <option name="includeDownstreamBasesOption">false</option>
+          <option name="numDownstreamBasesOption">0</option>
+        </childOption>
+        <childOption name="consensusOptions">
+          <option name="thresholdPercent">weighted_60</option>
+          <option name="noConsensusGaps">false</option>
+          <option name="mapQuality">true</option>
+          <option name="mapQualityMethod">mapSummed</option>
+          <option name="noCoverageCharacterDeNovo">unknown</option>
+          <option name="noCoverageCharacterReference">unknown</option>
+          <option name="applyLowCoverageOrQualityCall">false</option>
+          <option name="lowCoverageOrQualityCharacter">unknown</option>
+          <option name="coverageOrQuality">coverage</option>
+          <option name="qualityThreshold">20</option>
+          <option name="coverageThreshold">2</option>
+          <option name="noConsensusEndGaps">false</option>
+          <option name="trimToReference">false</option>
+          <option name="ignoreReadsMappedToMultipleLocations">false</option>
+          <option name="removeGaps">true</option>
+          <option name="appendText">false</option>
+          <option name="textToAppend">consensus sequence</option>
+          <option name="callWhenGapInBestStates" />
+          <option name="callChromatogramHeterozygotes">true</option>
+          <option name="chromatogramHeterozygotePercentage">50</option>
+          <option name="howToStoreSequences">AskUser</option>
+        </childOption>
+        <multiOption name="annotation">
+          <value>
+            <option name="field">Annotation name</option>
+            <option name="condition">contains</option>
+            <option name="value" extra="">S CDS</option>
+          </value>
+          <value>
+            <option name="field">Annotation name</option>
+            <option name="condition">contains</option>
+            <option name="value" extra="">N CDS</option>
+          </value>
+          <value>
+            <option name="field">Annotation name</option>
+            <option name="condition">contains</option>
+            <option name="value" extra="">E CDS</option>
+          </value>
+          <value>
+            <option name="field">Annotation name</option>
+            <option name="condition">contains</option>
+            <option name="value" extra="">M CDS</option>
+          </value>
+          <value>
+            <option name="field">Annotation name</option>
+            <option name="condition">contains</option>
+            <option name="value" extra="">ORF2</option>
+          </value>
+          <value>
+            <option name="field">Annotation name</option>
+            <option name="condition">contains</option>
+            <option name="value" extra="">ORF4</option>
+          </value>
+          <value>
+            <option name="field">Annotation name</option>
+            <option name="condition">contains</option>
+            <option name="value" extra="">ORF5</option>
+          </value>
+          <value>
+            <option name="field">Annotation name</option>
+            <option name="condition">contains</option>
+            <option name="value" extra="">ORF6</option>
+          </value>
+        </multiOption>
+      </Options>
+      <optionToExpose optionName="match" label="" />
+    </workflowElement>
+    <workflowElement id="TranslationOperation" exposeNoOptions="true" exposeAllOptions="false" suppressErrors="false" showButtonForExposedGroup="false" groupNameForExposedOptions="" type="com.biomatters.plugins.workflows.DocumentOperationWorkflowElement" />
+    <workflowElement type="com.biomatters.plugins.workflows.WorkflowElementSaveAndContinue">
+      <options>
+        <option name="save">true</option>
+        <option name="saveInSubFolder">true</option>
+        <option name="subFolderName">MENS</option>
+        <option name="addVariable">Include Name...</option>
+        <option name="selectDocuments">false</option>
+        <option name="doWhat">continue</option>
+        <option name="back">2</option>
+      </options>
+    </workflowElement>
+    <icon>iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAF50lEQVR4Xu1bWYgcVRTNxAWN6IgbgoLoj2BkzPTryTBEMbhExB9Rxj0wcaa6eowKoz/iOkaMirvoh0ZcwAXzoWBEJfqhBnfMR1ADwQVE1PyE0VFcMpnrudXVne77bm29vKqBOXCYqap77zvvVdVbbr1esqSLMBXqB9eAt5Qr9Jzx6fVShd7jv8ExzofX+6XvgsXqaTqw7NEVxqOtqNhekFJwLxrk/ZJP1ywfpYNlzIWBaVqKClRQmR+UCmbhz3hCqhxPFlFYlKs0iEf7C6UybZPjcVxZVuEAsZPgP7ICXSLHnZRlFgKjo3QAHtVnFNG94CYuT2rIDdzR4RF9VRHaM3J5XK7UkgOoD3f+JSnQCVEuly8VOQWGq9ssYW65QWpyBozvF0LAvCLKJecHx+kkqa3nWLmejkbhvyqC8uDNUl/PgUJfVoSk5Sx3YuB6/H/RkEfnlX26EscP4PhbxT6eHr0o9fUUpQk6y7T36P+BSt666lo6XMZsRhDfo88Vf50ePStjMIYn6ER5rgugvnZmeeyzcoJOltGiwON82MHuk7Ek0Retlf4MXNs5UKXj5PmOEHZ8logEvjUyRYfKWGkA31HwPyVmnTujFkzh9R2D6+hYea1t4E5+oIiIpk8f4e8yGScLTG2JvMeKXaFvhibpFGlfR5PdV6YbS2y8mwOKiDj+MnQdHS/jtAMedfBKTHGHx1PukkdXR935OoSWz0ynjYDCH1YqGUkshy+RMdwBM1SpqZOnMVjsVOg3K2gUPdoqY7iEqWWfLF2caDHtNMKgTyMyWBwxtg/JGC5hIhqAiX7s7aTXxwIcN8hAMdwm/V3DxDRAyDcyNQJa7WMliEp0UGPS3zVMcgNwn/BaqrwCr7vh8LcVQOe/wzfQETKGa5g0DcDEqJLYCHifV1iOEUQn86H0jwJPUIK0uBLHMTfF5hV4qqk46fToHumvgafFsP/e8s+LHj0R2QgwuMNyiGCasZ/vPGy/k74F4ENSawBebSnGKjFcnib9WxEsprJNp93SzjCht9yiGKpM6gB53S99Ckefbm8RjZPbLCOdcy2OCgp+9/fTp5saotGzf2kZ6JxpqqsK2Pyl+BWR86j39XXROxQDjWkaYFbxKyTxtD4SiM6QAdon6muB5+GKX+GIu/9oY1gMl5GWkcYVY3SkqHMLMEqcK30KRyz7W0SjNd60jCJYrtLpLc4K0KDPS7/CUFaegQZ42jKMIBZCl0l/CdgtM7UMjeWfK316UGoNkPHz133SXwPPF3jdoPjnQv4mITU2wPk36RBJnz6V/lHgTDF8NlsxHDO28gysBpdLpxjOgcfIGHkAOmYUfZLJT2yYD/xTcdbJe3oKAEuXpE8bpU8kMr6v26V/HlB0NYj63CvtY8ELBBkkjqUJOkfGcA2pqcGUOYsWoELGChRDtPAnkQkGR5CaQtrL3VSYpqVw/kkJGMmST+tkmE7AX4c44YJRyUP8NavH6BBp0wypB0/x3dImE/i9sYLGc0/ct7u0CL8Uc9ly+91uzi9I+zqabTHU3SWvZ0Z5kk412fcF8Eqyo29ySVNnNMK49BlYS4c1bDy6U15vG7gT70gBSeT+YGScjpKx0sDUNl5aMQV/N2LuYeppcZnd6RSYFJ2tCEjDXVm2ugazRJ8eU+Ko5H6h2R/n+nkK33yua+ggrcUbHR4/o0onyJh1BJsufbocdrsU/0g2khcuEH4oSdy6EsO5Mn+lRa/MIwWOrwJvBF8Adyv2yey0h8+KLEtkF0RHeL7U2FPwchYF/yiF5EFO2eUy6ULhZ5ra6s8S5ZBz6FxXSW3OYNINUz0jXsUpqck5+MOiFOaEPj0lteQE6sOdeNIS2EsGlc/hvY9G8LuBjSb7VDkr52uJjEJVfj9MbWdnr77+zKbJOucOXgHiLr2rVKB9Il43VpZOAeEXg9utymTj12WPLpWxFxRMba8v/74gTZaWOYOR5RU87hcU9l1vB+Fus2HOGqOC95vaz+w2B39rx9XgeoUOkr6LWMQicsH/miAz12x2XGYAAAAASUVORK5CYII=</icon>
+  </XMLSerialisableRootElement>
+  <XMLSerialisableRootElement name="remove_dups" author="bradleymain" geneiousVersion="2020.0.3" uniqueId="8d98e075-8e3b-49c2-b523-75aec1bf1907" revisionNumber="2" description="" bundledIconName="plugin">
+    <workflowElement id="Dedupe" exposeNoOptions="true" exposeAllOptions="false" suppressErrors="false" showButtonForExposedGroup="false" groupNameForExposedOptions="" type="com.biomatters.plugins.workflows.DocumentOperationWorkflowElement" />
+    <workflowElement type="com.biomatters.plugins.workflows.WorkflowElementSaveAndContinue">
+      <options>
+        <option name="save">true</option>
+        <option name="saveInSubFolder">true</option>
+        <option name="subFolderName">no_dup</option>
+        <option name="addVariable">Include Name...</option>
+        <option name="selectDocuments">false</option>
+        <option name="doWhat">continue</option>
+        <option name="back">2</option>
+      </options>
+    </workflowElement>
+  </XMLSerialisableRootElement>
+</geneiousWorkflows>
