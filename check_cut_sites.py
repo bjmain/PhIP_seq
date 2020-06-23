@@ -1,6 +1,6 @@
 # This python script prints out the number of sequence matches in our oligo library.
 # This was used to confirm that PEPSYN software worked properly.
-# At these are palidromic sequences, the rev. complement is the same.
+# As these restriction sites are palidromic sequences, the rev. complement is the same.
 2020-06-23
 bmain 
 
